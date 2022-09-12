@@ -21,4 +21,4 @@ Customer:
    password: '1234'
 4. Logged in user will be able to see his favorite listed recipes if he logs in after logout.
 
-#LIVE VERSION IS HOSTED HERE :
+#LIVE VERSION IS HOSTED HERE : https://imran-hot-chili.netlify.app/
