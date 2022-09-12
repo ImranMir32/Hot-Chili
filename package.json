@@ -1,0 +1,23 @@
+{
+  "name": "hot-chili",
+  "version": "1.0.0",
+  "description": "Hot Chili is a recipe searching web application using vanilla JavaScript.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --no-scope-hoist --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImranMir32/Hot-Chili.git"
+  },
+  "author": "Md. Imran Mir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImranMir32/Hot-Chili/issues"
+  },
+  "homepage": "https://github.com/ImranMir32/Hot-Chili#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0"
+  }
+}

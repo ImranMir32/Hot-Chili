@@ -1,0 +1,78 @@
+$color-primary: #b5e48c;
+$color-grad-1: #73a24a;
+$color-grad-2: #a9c25d;
+$color-grad-3: #5d6f25;
+$color-grad-4: #a8d71d;
+$color-grad-5: #2c7fd2;
+$color-grad-6: #444444ea;
+$color-grad-7: #5c7942;
+
+$color-olive-light-1: #b5e48c;
+$color-olive-light-2: #eaf6e1;
+$color-olive-light-3: #7f9f65;
+$color-olive-dark-1: #475639;
+$color-olive-dark-2: #27351b;
+
+$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+$grad: linear-gradient(to right bottom, $color-grad-3, $color-grad-4);
+$grad1: linear-gradient(to right bottom, $color-grad-5, $color-grad-6);
+$grad2: linear-gradient(to right bottom, $color-grad-7, $color-grad-5);
+
+$bp-large: 78.15em;
+$bp-medium: 61.25em;
+$bp-small: 37.5em;
+$bp-smallest: 31.25em;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 60%;
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 41.5%;
+  }
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-olive-dark-1;
+  background-image: $gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw);
+}
+
+.container {
+  max-width: 133rem;
+  min-height: 115rem;
+  margin: 4vw auto;
+  background-color: #fff;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba($color-olive-dark-1, 0.2);
+
+  display: grid;
+  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'head head'
+    'list recipe';
+
+  @media only screen and (max-width: $bp-large) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
