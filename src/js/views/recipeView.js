@@ -65,7 +65,9 @@ class RecipeView extends View {
           }</span>
           <span class="recipe__info-text">servings</span>
 
-          <div class="recipe__info-buttons">
+          <div class="recipe__info-buttons ${
+            this._data.isAdmin ? '' : 'hidden'
+          } ">
             <button class="btn--tiny btn--update-servings" data-update-to="${
               this._data.servings - 1
             }">
