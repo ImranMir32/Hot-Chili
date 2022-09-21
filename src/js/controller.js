@@ -20,10 +20,8 @@ const controlSearchResults = async function () {
     const query = searchView.getQuery();
 
     if (query === '') {
-      setTimeout(function () {
-        resultsView.renderMessage('⚠️ Invalid Token , Please Try Again !');
-        paginationView.refresh();
-      }, 1);
+      paginationView.refresh();
+      throw Error('Invalid Token');
     }
     if (!query) return;
 
@@ -37,6 +35,7 @@ const controlSearchResults = async function () {
       }
     }, REFRESH);
   } catch (err) {
+    resultsView.renderError(err.message);
     console.log(err);
   }
 };
@@ -98,7 +97,7 @@ const controlAddUser = async function (newUser) {
       MSG_LOAD_TIME * 1000
     );
   } catch (err) {
-    addUserView.renderError();
+    addUserView.renderError(err.message);
     console.error(err);
   }
 };

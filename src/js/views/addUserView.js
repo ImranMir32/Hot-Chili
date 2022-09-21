@@ -24,13 +24,15 @@ class AddUserView extends View {
 
   toogleWindow() {
     const hasMessage = this._parentEl.lastChild.classList?.contains('message');
-    this._window.classList.toggle('hidden');
-    this._overlay.classList.toggle('hidden');
-
+    const hasErrorMessage =
+      this._parentEl.lastChild.classList?.contains('error');
     const elements = Array.from(this._parentEl.elements);
     elements.forEach(el => (el.value = ''));
 
-    if (hasMessage) {
+    this._window.classList.toggle('hidden');
+    this._overlay.classList.toggle('hidden');
+
+    if (hasMessage || hasErrorMessage) {
       setTimeout(() => {
         this._clear();
         this._parentEl.innerHTML = this._generateMarkup();
