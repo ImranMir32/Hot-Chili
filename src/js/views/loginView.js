@@ -3,17 +3,14 @@ import icons from 'url:../../img/icons.svg';
 import { REFRESH } from '../config.js';
 
 class LoginView extends View {
-  _parentEl = document.querySelector('.login__form');
   _message = 'Logged In Successfully';
   _errorMessage = 'Login failed. Please try again!';
-
-  _window = document.querySelector('.login-window');
-  _overlay = document.querySelector('.login-overlay');
-  _btnOpen = document.querySelector('.nav__btn--login');
-  _btnClose = document.querySelector('.login-btn--close-modal');
-
-  constructor() {
-    super();
+  call() {
+    this._parentEl = document.querySelector('.login__form');
+    this._window = document.querySelector('.login-window');
+    this._overlay = document.querySelector('.login-overlay');
+    this._btnOpen = document.querySelector('.nav__btn--login');
+    this._btnClose = document.querySelector('.login-btn--close-modal');
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
   }

@@ -57,34 +57,31 @@ export const updateResultState = function () {
   });
 };
 
+function Authentication_(userData, arr, flag) {
+  arr.forEach(element => {
+    if (
+      element.username === userData.username &&
+      element.password === userData.password
+    ) {
+      if (flag) state.isAdmin = true;
+      else state.isUser = true;
+      state.username = userData.username;
+    }
+  });
+}
+
 export const isAuthenticated = function (userData) {
   const admins = JSON.parse(localStorage.getItem('admins'));
   const users = JSON.parse(localStorage.getItem('users'));
-
-  admins.forEach(admin => {
-    if (
-      admin.username === userData.username &&
-      admin.password === userData.password
-    )
-      state.isAdmin = true;
-    state.username = userData.username;
-  });
-
-  users.forEach(users => {
-    if (
-      users.username === userData.username &&
-      users.password === userData.password
-    )
-      state.isUser = true;
-    state.username = userData.username;
-  });
+  Authentication_(userData, admins, 1);
+  Authentication_(userData, users, 0);
 };
 
 export const uploadedUser = function (newUser) {
   try {
     const users = JSON.parse(localStorage.getItem('users'));
     users.forEach(user => {
-      if (user.email === newUser.email || user.name === newUser.name) {
+      if (user.email === newUser.email || user.username === newUser.username) {
         throw Error('Username or Email already exists.');
       }
     });
@@ -105,7 +102,7 @@ export const uploadRecipe = async function (newRecipe) {
         const ingArr = ing[1].split(',').map(el => el.trim());
         if (ingArr.length !== 3)
           throw new Error(
-            'Wrong ingredient fromat! Please use the correct format :)'
+            'Wrong ingredient fromat ! Please use the correct format :)'
           );
 
         const [quantity, unit, description] = ingArr;
@@ -140,27 +137,24 @@ export const uploadRecipe = async function (newRecipe) {
   }
 };
 
+function loginHash_(userData, arr, flag) {
+  for (let i = 0; i < arr.length; i++) {
+    if (
+      arr[i].username === userData.username &&
+      arr[i].password === userData.password
+    ) {
+      if (flag) window.location.hash = `156ad4A` + i.toString();
+      else window.location.hash = `156ad4U` + i.toString();
+    }
+  }
+}
+
 export const setLoginHash = function (userData) {
   const admins = JSON.parse(localStorage.getItem('admins'));
   const users = JSON.parse(localStorage.getItem('users'));
 
-  for (let i = 0; i < admins.length; i++) {
-    if (
-      admins[i].username === userData.username &&
-      admins[i].password === userData.password
-    ) {
-      window.location.hash = `156ad4A` + i.toString();
-    }
-  }
-
-  for (let i = 0; i < users.length; i++) {
-    if (
-      users[i].username === userData.username &&
-      users[i].password === userData.password
-    ) {
-      window.location.hash = `156ad4U` + i.toString();
-    }
-  }
+  loginHash_(userData, admins, 1);
+  loginHash_(userData, users, 0);
   localStorage.setItem('loginHash', window.location.hash.slice(1));
 };
 

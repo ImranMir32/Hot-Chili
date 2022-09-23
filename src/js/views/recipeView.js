@@ -4,18 +4,21 @@ import timeIcon from 'url:../../img/time-icon.svg';
 import { getFraction } from '../helpers.js';
 
 class RecipeView extends View {
-  _parentEl = document.querySelector('.recipe');
+  call() {
+    this._parentEl = document.querySelector('.recipe');
+  }
   _errorMessage = 'We could not find that recipe. Please try another one!';
   _message;
 
   addHandlerRender(handler) {
-    ['hashchange', 'load'].forEach(ev =>
-      window.addEventListener(ev, function () {
-        const id = window.location.hash.slice(1);
-        if (!id.includes('item')) return;
-        handler();
-      })
-    );
+    const id = window.location.hash.slice(1);
+    if (id.includes('item')) handler();
+
+    window.addEventListener('hashchange', function () {
+      const id = window.location.hash.slice(1);
+      if (!id.includes('item')) return;
+      handler();
+    });
   }
 
   addHandlerUpdateServings(handler) {

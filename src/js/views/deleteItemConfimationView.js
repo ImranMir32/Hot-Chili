@@ -1,17 +1,15 @@
 import View from './view';
 
 class DeleteItemConfirmationView extends View {
-  _parentEl = document.querySelector('.confirm-delete__form');
   _message = 'Logged In Successfully';
 
-  _window = document.querySelector('.confirm-delete-window');
-  _overlay = document.querySelector('.confirm-delete-overlay');
-  _btnOpen = null;
-  _btnCancel = document.querySelector('.btn--confirm-delete-cancel');
-  _btnConfirm = document.querySelector('.btn--confirm-delete');
-
-  constructor() {
-    super();
+  call() {
+    this._parentEl = document.querySelector('.confirm-delete__form');
+    this._window = document.querySelector('.confirm-delete-window');
+    this._overlay = document.querySelector('.confirm-delete-overlay');
+    this._btnOpen = null;
+    this._btnCancel = document.querySelector('.btn--confirm-delete-cancel');
+    this._btnConfirm = document.querySelector('.btn--confirm-delete');
     this._addHandlerHideWindow();
   }
 
@@ -37,7 +35,7 @@ class DeleteItemConfirmationView extends View {
 
   _addHandlerHideWindow() {
     const bindedToggle = this.toogleWindow.bind(this);
-    this._btnCancel.addEventListener('click', function(e) {
+    this._btnCancel.addEventListener('click', function (e) {
       e.preventDefault();
       bindedToggle();
     });

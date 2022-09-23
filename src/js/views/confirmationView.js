@@ -1,17 +1,15 @@
 import View from './view';
 
 class ConfirmationView extends View {
-  _parentEl = document.querySelector('.confirmation__form');
   _message = 'Logged In Successfully';
 
-  _window = document.querySelector('.confirmation-window');
-  _overlay = document.querySelector('.confirmation-overlay');
-  _btnOpen = null;
-  _btnCancel = document.querySelector('.btn--cancel');
-  _btnConfirm = document.querySelector('.btn--confirm');
-
-  constructor() {
-    super();
+  call() {
+    this._parentEl = document.querySelector('.confirmation__form');
+    this._window = document.querySelector('.confirmation-window');
+    this._overlay = document.querySelector('.confirmation-overlay');
+    this._btnOpen = null;
+    this._btnCancel = document.querySelector('.btn--cancel');
+    this._btnConfirm = document.querySelector('.btn--confirm');
     this._addHandlerHideWindow();
   }
 
@@ -34,7 +32,7 @@ class ConfirmationView extends View {
 
   _addHandlerHideWindow() {
     const bindedToggle = this.toogleWindow.bind(this);
-    this._btnCancel.addEventListener('click', function(e) {
+    this._btnCancel.addEventListener('click', function (e) {
       e.preventDefault();
       bindedToggle();
     });

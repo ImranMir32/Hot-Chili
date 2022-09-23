@@ -16,119 +16,18 @@
     <link rel="shortcut icon" href="src/img/logo.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="src/sass/main.scss" />
-    <script type="module" defer src="src/js/controller.js"></script>
-
+    <script defer src="src/js/attachHTML.js"></script>
+    <script defer type="module" src="src/js/controller.js"></script>
     <title>Hot Chili</title>
   </head>
 
   <body>
     <div class="container">
-      <header class="header">
-        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
-        <form class="search">
-          <input
-            type="text"
-            class="search__field"
-            placeholder="Search for recipes..."
-          />
-          <button class="btn search__btn">
-            <svg class="search__icon">
-              <use href="src/img/icons.svg#icon-search"></use>
-            </svg>
-            <span>Search</span>
-          </button>
-        </form>
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <button class="nav__btn nav__btn--login">
-                <svg class="nav__icon">
-                  <use href="src/img/icons.svg#icon-user"></use>
-                </svg>
-                <span>Sign In</span>
-              </button>
-            </li>
-            <li class="nav__item">
-              <button class="nav__btn nav__btn--registration">
-                <svg class="nav__icon">
-                  <use href="src/img/icons.svg#icon-arrow-right"></use>
-                </svg>
-                <span>Join Now</span>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
       <!--- sign in sign up form ----------------------------------------------->
 
       <div class="registration-overlay hidden"></div>
-      <div class="registration-window hidden">
-        <button class="registration-btn--close-modal">&times;</button>
-        <h2 class="registration__header">Join Now , Hot chili</h2>
-        <form class="registration__form">
-          <div>
-            <h2>Username</h2>
-            <input
-              type="text"
-              required
-              placeholder="User Name"
-              name="username"
-            />
-          </div>
-
-          <div>
-            <h2>Password</h2>
-            <input
-              type="password"
-              required
-              placeholder="Password"
-              name="password"
-            />
-          </div>
-
-          <div>
-            <h2>Email Address</h2>
-            <input
-              type="email"
-              required
-              placeholder="Email Address"
-              name="email"
-            />
-          </div>
-
-          <button class="btn registration-btn">Register</button>
-        </form>
-      </div>
 
       <div class="login-overlay hidden"></div>
-      <div class="login-window hidden">
-        <button class="login-btn--close-modal">&times;</button>
-        <h2 class="login__header">Plese Enter Your username and password</h2>
-        <form class="login__form">
-          <div>
-            <h2>Username</h2>
-            <input
-              type="text"
-              required
-              placeholder="User Name"
-              name="username"
-            />
-          </div>
-          <div>
-            <h2>Password</h2>
-            <input
-              type="password"
-              required
-              placeholder="Password"
-              name="password"
-            />
-          </div>
-
-          <button class="btn login-btn">Log In</button>
-        </form>
-      </div>
 
       <div class="search-results">
         <ul class="results"></ul>
@@ -143,117 +42,9 @@
     </div>
 
     <div class="add-recipe-overlay hidden"></div>
-    <div class="add-recipe-window hidden">
-      <button class="add-recipe-btn--close-modal">&times;</button>
-      <form class="upload">
-        <div class="upload__column">
-          <h3 class="upload__heading">Recipe data</h3>
-          <label>Title</label>
-          <input required name="title" type="text" placeholder="Title" />
-          <label>Publisher</label>
-          <input
-            required
-            name="publisher"
-            type="text"
-            placeholder="Publisher Name"
-          />
-          <label>Prep time</label>
-          <input
-            required
-            name="cookingTime"
-            type="number"
-            placeholder="Cooking Time"
-          />
-          <label>Servings</label>
-          <input
-            required
-            name="servings"
-            type="number"
-            placeholder="Number Of Servings"
-          />
-
-          <label>Image URL</label>
-          <input required name="image" type="text" placeholder="Image URL" />
-        </div>
-
-        <div class="upload__column">
-          <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
-            type="text"
-            required
-            name="ingredient-1"
-            placeholder="Quantity,Unit,Description"
-          />
-          <label>Ingredient 2</label>
-          <input
-            type="text"
-            name="ingredient-2"
-            placeholder="Quantity,Unit,Description"
-          />
-          <label>Ingredient 3</label>
-          <input
-            type="text"
-            name="ingredient-3"
-            placeholder="Quantity,Unit,Description"
-          />
-          <label>Ingredient 4</label>
-          <input
-            type="text"
-            name="ingredient-4"
-            placeholder="Quantity,Unit,Description"
-          />
-          <label>Ingredient 5</label>
-          <input
-            type="text"
-            name="ingredient-5"
-            placeholder="Quantity,Unit,Description"
-          />
-          <label>Ingredient 6</label>
-          <input
-            type="text"
-            name="ingredient-6"
-            placeholder="Qantity,Unit,Description"
-          />
-        </div>
-
-        <button class="btn upload__btn">
-          <span>Upload</span>
-        </button>
-      </form>
-    </div>
 
     <div class="confirmation-overlay hidden"></div>
-    <div class="confirmation-window hidden">
-      <form class="confirmation__form">
-        <label>Set Cooking Time</label>
-        <input
-          type="text"
-          placeholder="Cooking Time"
-          class="confirmation__input"
-        />
-        <button class="btn--confirm">
-          <svg>
-            <use href="src/img/icons.svg#icon-check"></use>
-          </svg>
-          <span>Confirm</span>
-        </button>
-        <button class="btn--cancel">Cancel</button>
-      </form>
-    </div>
 
     <div class="confirm-delete-overlay hidden"></div>
-    <div class="confirm-delete-window hidden">
-      <form class="confirm-delete__form">
-        <label>Want to delete this recipe ?</label>
-        <button class="btn--confirm-delete">
-          <svg>
-            <use href="src/img/icons.svg#icon-check"></use>
-          </svg>
-          <span>Confirm</span>
-        </button>
-        <button class="btn--confirm-delete-cancel">Cancel</button>
-      </form>
-    </div>
   </body>
 </html>

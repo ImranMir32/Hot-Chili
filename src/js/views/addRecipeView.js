@@ -2,16 +2,14 @@ import View from './view.js';
 import { REFRESH } from '../config.js';
 
 class AddRecipeView extends View {
-  _parentEl = document.querySelector('.upload');
   _message = 'Recipe was successfully uploaded';
 
-  _window = document.querySelector('.add-recipe-window');
-  _overlay = document.querySelector('.add-recipe-overlay');
-  _btnOpen = null;
-  _btnClose = document.querySelector('.add-recipe-btn--close-modal');
-
-  constructor() {
-    super();
+  call() {
+    this._parentEl = document.querySelector('.upload');
+    this._window = document.querySelector('.add-recipe-window');
+    this._overlay = document.querySelector('.add-recipe-overlay');
+    this._btnOpen = null;
+    this._btnClose = document.querySelector('.add-recipe-btn--close-modal');
   }
 
   init() {

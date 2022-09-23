@@ -2,17 +2,14 @@ import View from './view.js';
 import { REFRESH } from '../config.js';
 
 class AddUserView extends View {
-  _parentEl = document.querySelector('.registration__form');
   _message = 'Profile was successfully uploaded';
   _errorMessage = 'Something occured. Please try again!';
-
-  _window = document.querySelector('.registration-window');
-  _overlay = document.querySelector('.registration-overlay');
-  _btnOpen = document.querySelector('.nav__btn--registration');
-  _btnClose = document.querySelector('.registration-btn--close-modal');
-
-  constructor() {
-    super();
+  call() {
+    this._parentEl = document.querySelector('.registration__form');
+    this._window = document.querySelector('.registration-window');
+    this._overlay = document.querySelector('.registration-overlay');
+    this._btnOpen = document.querySelector('.nav__btn--registration');
+    this._btnClose = document.querySelector('.registration-btn--close-modal');
     this._addHandlerShowWindow();
     this._addHandlerHideWindow();
   }

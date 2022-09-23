@@ -24,14 +24,14 @@ export const addRegistrationpBtn = function () {
   const parentEl = document.querySelector('.nav__list');
 
   const html = `
-  <li class="nav__item">
-    <button class="nav__btn nav__btn--registration">
-      <svg class="nav__icon">
-        <use href="${icons}#icon-arrow-right"></use>
-      </svg>
-      <span>Sign Up</span>
-    </button>
-  </li>`;
+    <li class="nav__item">
+      <button class="nav__btn nav__btn--registration">
+         <svg class="nav__icon">
+          <use href="${icons}#icon-arrow-right"></use>
+        </svg>
+        <span>Join Now</span>
+     </button>
+    </li>`;
 
   parentEl.insertAdjacentHTML('beforeend', html);
 };

@@ -18,7 +18,6 @@ const controlSearchResults = async function () {
     resultsView.renderSpinner();
 
     const query = searchView.getQuery();
-
     if (query === '') {
       paginationView.refresh();
       throw Error('Invalid Token');
@@ -177,11 +176,7 @@ const controlPagination = function (goToPage) {
 const controlLogoutBtn = function () {
   try {
     helpers.clearHash();
-    helpers.clearNav();
-    helpers.addloginBtn();
-    helpers.addRegistrationpBtn();
-    loginView.refreshBtn();
-    addUserView.refreshBtn();
+    window.location.href = 'index.html';
     model.refreshSession();
     resultsView.refresh();
     paginationView.refresh();
@@ -230,17 +225,31 @@ const controlAddBookmark = function () {
 };
 
 const init = function () {
-  searchView.addHandlerSearch(controlSearchResults);
-  recipeView.addHandlerRender(controlRecipes);
-  recipeView.addHandlerUpdateServings(controlServings);
-  recipeView.addHandlerAddBookmark(controlAddBookmark);
-  paginationView.addHandlerClick(controlPagination);
-  loginView.addHandlerLoginUser(controlUserLogin);
-  addUserView.addHandlerUploadUser(controlAddUser);
-  deleteItemConfimationView.addHandlerConfirm(controlDeleteRecipe);
-
-  model.setLocalStorage();
-  controlPersistLogin();
+  setTimeout(function () {
+    const hash = localStorage.getItem('loginHash');
+    if (hash === null) {
+      loginView.call();
+      addUserView.call();
+      loginView.addHandlerLoginUser(controlUserLogin);
+      addUserView.addHandlerUploadUser(controlAddUser);
+    }
+    searchView.call();
+    resultsView.call();
+    recipeView.call();
+    paginationView.call();
+    deleteItemConfimationView.call();
+    confirmationView.call();
+    bookmarksView.call();
+    addRecipeView.call();
+    searchView.addHandlerSearch(controlSearchResults);
+    recipeView.addHandlerRender(controlRecipes);
+    recipeView.addHandlerUpdateServings(controlServings);
+    recipeView.addHandlerAddBookmark(controlAddBookmark);
+    paginationView.addHandlerClick(controlPagination);
+    deleteItemConfimationView.addHandlerConfirm(controlDeleteRecipe);
+    model.setLocalStorage();
+    controlPersistLogin();
+  }, 1500);
 };
 
 init();

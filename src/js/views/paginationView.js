@@ -2,7 +2,9 @@ import View from './view.js';
 import icons from 'url:../../img/icons.svg';
 
 class PaginationView extends View {
-  _parentEl = document.querySelector('.pagination');
+  call() {
+    this._parentEl = document.querySelector('.pagination');
+  }
 
   addHandlerClick(handler) {
     this._parentEl.addEventListener('click', function (e) {
