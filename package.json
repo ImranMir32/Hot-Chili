@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Hot Chili is a recipe searching web application using vanilla JavaScript.",
   "scripts": {
-    "start": "parcel index.html header.html registration.html login.html add-recipe.html confirm-window.html delete-window.html SignIn_SignUp.html ",
-    "build": "parcel build index.html header.html registration.html login.html add-recipe.html confirm-window.html delete-window.html SignIn_SignUp.html --no-scope-hoist --dist-dir ./dist"
+    "start": "parcel index.html header.html registration.html login.html add-recipe.html confirm-window.html delete-window.html ",
+    "build": "parcel build index.html header.html registration.html login.html add-recipe.html confirm-window.html delete-window.html --no-scope-hoist --dist-dir ./dist"
   },
   "repository": {
     "type": "git",

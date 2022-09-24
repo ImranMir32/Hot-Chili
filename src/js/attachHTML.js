@@ -1,21 +1,16 @@
 const hash = localStorage.getItem('loginHash');
 
 const container_ = document.querySelector('.container');
+fetchHeader();
+
 async function fetchHeader() {
   const data = await fetch('header.html');
   const text = await data.text();
   container_.innerHTML += text;
-}
-fetchHeader();
-
-if (hash === null) {
-  async function fetchSignInSignUp() {
-    const navItem_ = document.querySelector('.nav__list');
-    const data = await fetch('SignIn_SignUp.html');
-    const text = await data.text();
-    navItem_.innerHTML += text;
+  if (hash !== null) {
+    parentEl = document.querySelector('.nav__list');
+    parentEl.innerHTML = '';
   }
-  setTimeout(fetchSignInSignUp, 300);
 }
 
 async function fetchReg() {

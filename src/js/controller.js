@@ -105,7 +105,6 @@ const controlUserLogin = async function (userData) {
   try {
     model.isAuthenticated(userData);
     loginView.renderSpinner();
-
     if (model.state.isAdmin) {
       helpers.hideButtonsAndModal();
       helpers.addSessionUserName();
@@ -249,7 +248,7 @@ const init = function () {
     deleteItemConfimationView.addHandlerConfirm(controlDeleteRecipe);
     model.setLocalStorage();
     controlPersistLogin();
-  }, 2000);
+  }, 700);
 };
 
 init();
