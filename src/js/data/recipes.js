@@ -21,7 +21,6 @@ const recipe1 = {
     { quantity: 2, unit: 'tsps', description: 'clear honey' },
     { quantity: 2, unit: '', description: 'garlic cloves crushed' },
   ],
-  
 };
 
 const recipe2 = {
@@ -94,7 +93,7 @@ const recipe4 = {
   servings: 4,
   sourceUrl: 'http://www.closetcooking.com/2011/03/pizza-dip.html',
   title: 'Pizza Dip',
-  
+
   ingredients: [
     {
       quantity: 2,
@@ -140,7 +139,6 @@ const recipe5 = {
     { quantity: 2, unit: 'tbsps', description: 'green pepper sliced' },
     { quantity: 2, unit: 'tbsps', description: 'black olives sliced' },
   ],
-  
 };
 
 const recipe6 = {
@@ -219,14 +217,13 @@ const recipe8 = {
     { quantity: 15, unit: '', description: 'slices vegetarian pepperoni' },
     { quantity: 1, unit: '', description: 'can sliced black olives' },
   ],
- 
 };
 
 const recipe9 = {
   cookingTime: 75,
   id: 'PIZZAitem8',
   image: 'http://forkify-api.herokuapp.com/images/580542e3ec.jpg',
-  publisher: 'Proshanto Lal',
+  publisher: 'BBC Good Food',
   servings: 3,
   sourceUrl: 'https://recipes.timesofindia.com/recipes/pizza/rs56933159.cms',
   title: 'Super Pizza',
@@ -298,7 +295,7 @@ const recipe12 = {
   sourceUrl:
     'http://www.closetcooking.com/2013/02/cauliflower-pizza-crust-with-bbq.html',
   title: 'Cauliflower Pizza Crust (with BBQ Chicken Pizza)',
-  
+
   ingredients: [
     { quantity: 1.5, unit: 'cups', description: 'warm water' },
     { quantity: 1, unit: '', description: 'package of active dry yeast' },
