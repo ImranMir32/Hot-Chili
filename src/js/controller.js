@@ -248,7 +248,7 @@ const init = function () {
     deleteItemConfimationView.addHandlerConfirm(controlDeleteRecipe);
     model.setLocalStorage();
     controlPersistLogin();
-  }, 700);
+  }, 1400);
 };
 
 init();
